@@ -92,6 +92,12 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard.campaigns.index')" :active="request()->routeIs('dashboard.campaigns.*')">
+                {{ __('My Campaigns') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard.donations')" :active="request()->routeIs('dashboard.donations')">
+                {{ __('My Donations') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

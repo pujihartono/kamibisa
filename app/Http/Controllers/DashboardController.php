@@ -23,6 +23,7 @@ class DashboardController extends Controller
 
     public function donations()
     {
-
+        $donations = Auth::user()->donations()->orderBy('created_at', 'desc')->get();
+        return view('dashboard.donations', compact('donations'));
     }
 }

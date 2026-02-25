@@ -41,7 +41,7 @@
                                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                             <span class="text-gray-500 sm:text-sm">Rp</span>
                                         </div>
-                                        <x-text-input id="target_amount" class="block w-full pl-10" type="number" name="target_amount" :value="old('target_amount')" required min="1000" step="1" placeholder="0" />
+                                        <x-text-input id="target_amount" class="block w-full pl-10" type="number" name="target_amount" :value="old('target_amount')" required min="10000" step="1" placeholder="0" />
                                     </div>
                                     <x-input-error :messages="$errors->get('target_amount')" class="mt-2" />
                                 </div>
