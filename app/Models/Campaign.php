@@ -40,4 +40,20 @@ class Campaign extends Model
         if ($this->target_amount <= 0) return 0;
         return min(100, round(($this->current_amount / $this->target_amount) * 100));
     }
+
+    public function getFormattedTargetAttribute(): string
+    {
+        return 'Rp '.number_format($this->target_amount, 0, ',', '.');
+    }
+
+    public function getFormattedCurrentAttribute(): string
+    {
+        return 'Rp '.number_format($this->current_amount, 0, ',', '.');
+    }
+
+    public function scopeActive($query){
+        return $query
+            ->where('status', 'active')
+            ->whereDate('deadline', '>=', now());
+    }
 }
