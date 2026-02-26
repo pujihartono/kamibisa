@@ -18,11 +18,11 @@ class DonationController extends Controller
         DB::transaction(function () use ($validated, $campaign) {
             // 1. Simpan Data Donasi
             $campaign->donations()->create([
-                'user_id'     => Auth::id(), // Null jika guest
+                'user_id'     => Auth::id(),
                 'donor_name'  => $validated['donor_name'],
                 'donor_email' => $validated['donor_email'],
                 'amount'      => $validated['amount'],
-                'comment'     => $validated['comment'],
+                'comment'     => $validated['comment'] ?? null,
                 'is_paid'     => true, // Simulasi langsung lunas
             ]);
 

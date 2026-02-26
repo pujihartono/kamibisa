@@ -11,8 +11,6 @@ Route::get('/', [LandingController::class, 'index'])->name('landing');
 
 Route::get('/campaigns/{campaign:slug}', [CampaignController::class,'show'])->name('campaigns.show');
 
-Route::post('/campaigns/{campaign}/donate', [DonationController::class, 'store'])->name('donations.store');
-
 // PROTECTED ROUTES (User harus login)
 Route::middleware(['auth', 'verified'])->group(function () {
     // Dashboard Utama
@@ -26,6 +24,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Riwayat Donasi User
     Route::get('/dashboard/donations', [DashboardController::class, 'donations'])->name('dashboard.donations');
+
+    Route::post('/campaigns/{campaign}/donate', [DonationController::class, 'store'])->name('donations.store');
 
     // Profile (Bawaan Breeze)
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
